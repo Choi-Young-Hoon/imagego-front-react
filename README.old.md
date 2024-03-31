@@ -1,2 +1,0 @@
-# imagego-node
-imagego-node
