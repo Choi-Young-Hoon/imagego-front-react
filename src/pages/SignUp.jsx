@@ -4,7 +4,7 @@ import { CardHeader, CardContent, Card } from "@/components/ui/card"
 import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
-import {useState} from "react";
+import {useContext, useState} from "react";
 
 export default function SignUp() {
     const nav = useNavigate();
@@ -17,7 +17,7 @@ export default function SignUp() {
     }
 
     const requestSignUp = () => {
-        fetch("/api/register", {
+        fetch(`/api/register`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

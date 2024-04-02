@@ -14,13 +14,13 @@ export const UserSessionContext = createContext();
 function App() {
     const [jwtToken, setJwtToken] = useState("");
     const [userId, setUserId] = useState("");
+
     return (
         <UserSessionContext.Provider value={{jwtToken, setJwtToken, userId, setUserId}}>
             <BrowserRouter>
                 <Routes>
-                    <Route path="/register" element={<SignUp/>}/>
-
                     <Route path="/" element={<LoginCard/>}/>
+                    <Route path="/register" element={<SignUp/>}/>
                     <Route path="/gallery" element={<ImageGallary/>}/>
                     <Route path="/upload" element={<ImageUpload/>}/>
                     <Route path="/convert" element={<ImageConvert/>}/>

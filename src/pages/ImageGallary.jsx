@@ -14,7 +14,7 @@ export default function ImageGallary() {
     const [imageData, setImageData] = useState();
 
     useEffect(() => {
-        fetch('/api/image/all', {
+        fetch(`/api/image/all`, {
             method: 'GET',
             headers: {
                 Authorization: `Bearer ${token}`,

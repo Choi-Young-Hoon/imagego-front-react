@@ -10,7 +10,7 @@ export default function Header({userId}) {
 
     const nav = useNavigate();
 
-    fetch('/api/echo', {
+    fetch(`/api/echo`, {
         method: 'POST',
         headers: {
             Authorization: `Bearer ${token}`,

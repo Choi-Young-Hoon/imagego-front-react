@@ -15,7 +15,7 @@ export default function LoginCard() {
     const [password, setPassword] = useState("");
 
     const onLoginClick = () => {
-        fetch('/api/login', {
+        fetch(`/api/login`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

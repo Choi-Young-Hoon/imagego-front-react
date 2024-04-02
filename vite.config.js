@@ -13,10 +13,11 @@ export default defineConfig({
     sourcemap: true,
   },
   server: {
+    host: true,
     proxy: {
       '/api': {
-        target: 'http://choiyh.synology.me:50002',
-        //target: 'http://localhost:8080',
+        //target: 'http://choiyh.synology.me:50006',
+        target: 'http://localhost:8080',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, '')
       },
