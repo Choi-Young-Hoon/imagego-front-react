@@ -11,7 +11,7 @@ import {useNavigate} from "react-router-dom";
 export default function ImageUpload() {
     const nav = useNavigate();
 
-    const {userId} = useContext(UserSessionContext)
+    const {jwtToken: token, userId} = useContext(UserSessionContext)
 
     const [selectedFile, setSelectedFile] = useState(null);
     const [title, setTitle] = useState('');
@@ -47,6 +47,10 @@ export default function ImageUpload() {
             const response = await fetch(`/api/upload`, {
                 method: 'POST',
                 body: formData,
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+
             });
 
             if (response.status === 200) {
@@ -80,9 +84,9 @@ export default function ImageUpload() {
                                 className="flex w-full h-full items-center justify-center text-gray-500 transition-colors border-dashed border-2 border-gray-200 dark:text-gray-400 dark:border-gray-700">
                                 <MouseIcon className="w-6 h-6 mr-2"/>
                                 {selectedFile ? selectedFile.name : '업로드 이미지 드래그 & 드롭'}
-                                <Button size="sm" variant="outline">
+                                <Button size="sm" variant="outline" onClick={() => document.getElementById('fileInput').click()}>
                                     파일 선택
-                                    <Input className="hidden" type="file" onChange={handleFileChange}/>
+                                    <Input id="fileInput" className="hidden" type="file" onChange={handleFileChange}/>
                                 </Button>
                             </div>
                         )}

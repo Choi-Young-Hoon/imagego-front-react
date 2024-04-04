@@ -9,13 +9,9 @@ export default function ImageConvertImage ({title, imageUrl}) {
             className="inline-block rounded-lg overflow-hidden ring-2 ring-gray-200 dark:ring-gray-800">
             <img
                 alt={title}
-                className="object-cover object-center"
+                className="rounded-t-xl object-cover"
                 height="512"
                 src={imageUrl}
-                style={{
-                    aspectRatio: "80/80",
-                    objectFit: "cover",
-                }}
                 width="512"
             />
         </div>

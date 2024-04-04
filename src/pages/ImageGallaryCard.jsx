@@ -5,11 +5,13 @@ import {Card, CardContent} from "@/components/ui/card.jsx";
 import ImageGalleryDialog from "@/pages/ImageGalleryDialog.jsx";
 
 
-export default function ImageGallaryCard({imageId, imageUrl, title, description}) {
+export default function ImageGallaryCard({imageId, imageUrl, title, description, onUpdateImage}) {
     const [isOpen, setIsOpen] = useState(false);
 
     const closeModal = () => {
         setIsOpen(false);
+
+        onUpdateImage();
     };
 
     return (
@@ -22,7 +24,12 @@ export default function ImageGallaryCard({imageId, imageUrl, title, description}
                             <h3 className="font-semibold text-lg">{title}</h3>
                             <p className="text-sm text-gray-500 dark:text-gray-400">{description}</p>
 
-                            <ImageGalleryDialog isOpen={isOpen} imageId={imageId} imageUrl={imageUrl} title={title} description={description} closeModal={closeModal}/>
+                            <ImageGalleryDialog isOpen={isOpen}
+                                                imageId={imageId}
+                                                imageUrl={imageUrl}
+                                                title={title}
+                                                description={description}
+                                                closeModal={closeModal}/>
                         </div>
                     </div>
                 </CardContent>

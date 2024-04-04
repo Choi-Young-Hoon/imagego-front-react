@@ -13,7 +13,7 @@ export default function ImageGallary() {
 
     const [imageData, setImageData] = useState();
 
-    useEffect(() => {
+    const requestImageAll = () => {
         fetch(`/api/image/all`, {
             method: 'GET',
             headers: {
@@ -24,7 +24,10 @@ export default function ImageGallary() {
             .then(function (data) {
                 setImageData(data);
             });
-    }, [token]);
+    }
+    useEffect(() => {
+        requestImageAll();
+    });
 
     return (
         <div>
@@ -47,6 +50,7 @@ export default function ImageGallary() {
                                     imageUrl={`${window.location.protocol}//${image.imageUrl}`}
                                     title={image.title}
                                     description={image.description}
+                                    onUpdateImage={requestImageAll}
                                 />
                             ))}
                           </div>

@@ -60,7 +60,7 @@ export default function ImageConvert() {
                                                imageUrl={imageUrl}/>
                             <ImageConvertForm/>
                             <Button className="w-full">변환</Button>
-                            <ImageConvertAIModal closeModal={closeModal} isOpen={isOpen} imageUrl={"https://choiyh.synology.me:40001/img/rtccam_function_introduction.webp"}/>
+                            <ImageConvertAIModal closeModal={closeModal} isOpen={isOpen} imageUrl={imageUrl}/>
                         </div>
                     </CardContent>
                 </Card>
